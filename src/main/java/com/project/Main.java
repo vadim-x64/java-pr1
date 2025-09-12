@@ -2,6 +2,7 @@ package com.project;
 
 import com.project.models.Product;
 import com.project.models.Category;
+import com.project.services.Cart;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,5 +17,10 @@ public class Main {
         System.out.println(product1);
         System.out.println(product2);
         System.out.println(product3);
+
+        Cart cart = new Cart();
+        cart.addProduct(product1);
+
+        System.out.println(cart);
     }
 }
