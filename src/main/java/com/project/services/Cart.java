@@ -31,10 +31,11 @@ public class Cart {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder("Кошик містить:\n");
+        StringBuilder stringBuilder = new StringBuilder();
 
         for (Product product : _products) {
             stringBuilder.append(product.toString()).append("\n");
+            System.out.println();
         }
 
         stringBuilder.append("Загальна вартість: ").append(getTotalPrice());

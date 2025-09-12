@@ -4,8 +4,14 @@ import com.project.models.Product;
 import com.project.models.Category;
 import com.project.services.Cart;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Вітаємо в нашому магазині ShopOnline!");
+
         Category electronics = new Category(1, "Електроніка");
         Category smartphones = new Category(2, "Смартфони");
         Category accessories = new Category(3, "Аксесуари");
@@ -14,13 +20,60 @@ public class Main {
         Product product2 = new Product(2, "Навушники JBL", 699.0, "Вкладиші з підключенням через USB-C.", accessories);
         Product product3 = new Product(3, "Смартфон POCO X6 PRO", 15999.0, "Функціональний телефон з купою різних функцій.", smartphones);
 
-        System.out.println(product1);
-        System.out.println(product2);
-        System.out.println(product3);
-
         Cart cart = new Cart();
-        cart.addProduct(product1);
 
-        System.out.println(cart);
+        while (true) {
+            System.out.println();
+            System.out.println("0. Вихід");
+            System.out.println("1. Переглянути список товарів");
+            System.out.println("2. Додати товар до кошика");
+            System.out.println("3. Переглянути кошик");
+            System.out.println("4. Зробити замовлення");
+            System.out.println();
+            System.out.print("Виберіть опцію: ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 0:
+                    System.out.println();
+                    System.out.println("Дякуємо, що використовували наш магазин!");
+                    return;
+                case 1:
+                    System.out.println();
+                    System.out.println(product1);
+                    System.out.println(product2);
+                    System.out.println(product3);
+                    break;
+                case 2:
+                    System.out.println();
+                    System.out.print("Введіть ID товару для додавання до кошика: ");
+                    int id = scanner.nextInt();
+
+                    if (id == 1) {
+                        cart.addProduct(product1);
+                        System.out.println("Товар додано до кошика!");
+                    } else if (id == 2) {
+                        cart.addProduct(product2);
+                        System.out.println("Товар додано до кошика!");
+                    } else if (id == 3) {
+                        cart.addProduct(product3);
+                        System.out.println("Товар додано до кошика!");
+                    } else {
+                        System.out.println("Товар з таким ID не знайдено!");
+                    }
+
+                    break;
+                case 3:
+                    System.out.println(cart);
+                    break;
+                case 4:
+                    System.out.println("Замовлення оформлено!");
+                    break;
+                default:
+                    System.out.println("Невідома опція! Спробуйте ще раз!");
+                    break;
+            }
+        }
     }
 }
