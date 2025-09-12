@@ -30,6 +30,9 @@ public class Main {
             System.out.println("2. Додати товар до кошика");
             System.out.println("3. Переглянути кошик");
             System.out.println("4. Зробити замовлення");
+            System.out.println("5. Очистити кошик");
+            System.out.println("6. Переглянути замовлення");
+            System.out.println("7. Пошук товарів");
             System.out.println();
             System.out.print("Виберіть опцію: ");
 
@@ -83,7 +86,18 @@ public class Main {
                         System.out.println();
                         System.out.println("Замовлення оформлено!");
                         System.out.println(order);
-                        cart.clear();
+                        cart.clearCart();
+                    }
+
+                    break;
+                case 5:
+                    if (!cart.getProducts().isEmpty()) {
+                        cart.clearCart();
+                        System.out.println();
+                        System.out.println("Кошик було очищено!");
+                    } else {
+                        System.out.println();
+                        System.out.println("Кошик порожній!");
                     }
 
                     break;

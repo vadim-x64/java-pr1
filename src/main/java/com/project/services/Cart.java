@@ -33,7 +33,7 @@ public class Cart {
         return total;
     }
 
-    public void clear() {
+    public void clearCart() {
         _products.clear();
     }
 
@@ -43,7 +43,6 @@ public class Cart {
 
         for (Product product : _products) {
             stringBuilder.append(product.toString()).append("\n");
-            System.out.println();
         }
 
         stringBuilder.append("Загальна вартість: ").append(getTotalPrice());
