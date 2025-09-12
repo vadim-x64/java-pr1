@@ -4,7 +4,10 @@ import com.project.models.Order;
 import com.project.models.Product;
 import com.project.models.Category;
 import com.project.services.Cart;
+import com.project.services.FindItem;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -21,7 +24,13 @@ public class Main {
         Product product2 = new Product(2, "Навушники JBL", 699.0, "Вкладиші з підключенням через USB-C.", accessories);
         Product product3 = new Product(3, "Смартфон POCO X6 PRO", 15999.0, "Функціональний телефон з купою різних функцій.", smartphones);
 
+        List<Product> allProducts = new ArrayList<>();
+        allProducts.add(product1);
+        allProducts.add(product2);
+        allProducts.add(product3);
+
         Cart cart = new Cart();
+        FindItem findItem = new FindItem(allProducts);
 
         while (true) {
             System.out.println();
@@ -98,6 +107,26 @@ public class Main {
                     } else {
                         System.out.println();
                         System.out.println("Кошик порожній!");
+                    }
+
+                    break;
+                case 7:
+                    scanner.nextLine();
+                    System.out.println();
+                    System.out.print("Що шукаємо? ");
+                    String searchTerm = scanner.nextLine();
+                    List<Product> searchResults = findItem.search(searchTerm);
+
+                    if (searchResults.isEmpty()) {
+                        System.out.println();
+                        System.out.println("За вашим запитом '" + searchTerm + "' товарів не знайдено!");
+                    } else {
+                        System.out.println("Результати пошуку за запитом '" + searchTerm + "':");
+                        System.out.println();
+
+                        for (Product product : searchResults) {
+                            System.out.println(product);
+                        }
                     }
 
                     break;
