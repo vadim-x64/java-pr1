@@ -40,10 +40,7 @@ public class FindItem {
         String term = searchTerm.toLowerCase().trim();
 
         for (Product product : products) {
-            boolean foundByName = product.get_name().toLowerCase().contains(term);
-            boolean foundByCategory = product.get_category().getName().toLowerCase().contains(term);
-
-            if (foundByName || foundByCategory) {
+            if (product.get_name().toLowerCase().contains(term) || product.get_category().getName().toLowerCase().contains(term)) {
                 result.add(product);
             }
         }
