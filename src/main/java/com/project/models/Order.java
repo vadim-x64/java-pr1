@@ -1,12 +1,13 @@
 package com.project.models;
 
 import com.project.services.Cart;
+import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Setter
+@Getter
 public class Order {
     private List<Product> _products;
     private double _totalPrice;

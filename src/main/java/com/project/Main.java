@@ -31,6 +31,7 @@ public class Main {
 
         Cart cart = new Cart();
         FindItem findItem = new FindItem(allProducts);
+        List<Order> orderHistory = new ArrayList<>();
 
         while (true) {
             System.out.println();
@@ -92,8 +93,10 @@ public class Main {
                         System.out.println("Додайте товари перед оформленням замовлення!");
                     } else {
                         Order order = new Order(cart);
+                        orderHistory.add(order);
                         System.out.println();
                         System.out.println("Замовлення оформлено!");
+                        System.out.println();
                         System.out.println(order);
                         cart.clearCart();
                     }
@@ -107,6 +110,27 @@ public class Main {
                     } else {
                         System.out.println();
                         System.out.println("Кошик порожній!");
+                    }
+
+                    break;
+                case 6:
+                    System.out.println();
+
+                    if (orderHistory.isEmpty()) {
+                        System.out.println("Історія замовлень порожня!");
+                    } else {
+                        System.out.println("Історія ваших замовлень");
+                        System.out.println();
+
+                        for (int i = 0; i < orderHistory.size(); i++) {
+                            System.out.println("Замовлення #" + (i + 1));
+                            for (Product product : orderHistory.get(i).get_products()) {
+                                System.out.println(product.toString());
+                            }
+                            System.out.println("Загальна вартість: " + orderHistory.get(i).get_totalPrice());
+                            System.out.println("Статус: " + orderHistory.get(i).get_status());
+                            System.out.println("--------------------");
+                        }
                     }
 
                     break;
