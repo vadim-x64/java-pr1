@@ -12,10 +12,11 @@ public class Product {
     private String _name;
     private double _price;
     private String _description;
+    private Category _category;
 
     @Override
     public String toString() {
         return "Товар {" + "id = " + _id + ", назва = '" + _name + '\'' + ", ціна = " + _price +
-                ", опис = '" + _description + '\'' + '}';
+                ", опис = '" + _description + '\'' + ", категорія = '" + _category.getName() + '\'' + '}';
     }
 }
