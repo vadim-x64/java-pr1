@@ -1,5 +1,6 @@
 package com.project;
 
+import com.project.models.Order;
 import com.project.models.Product;
 import com.project.models.Category;
 import com.project.services.Cart;
@@ -65,10 +66,26 @@ public class Main {
 
                     break;
                 case 3:
-                    System.out.println(cart);
+                    if (cart.getProducts().isEmpty()) {
+                        System.out.println();
+                        System.out.println("Кошик порожній!");
+                    } else {
+                        System.out.println(cart);
+                    }
+
                     break;
                 case 4:
-                    System.out.println("Замовлення оформлено!");
+                    if (cart.getProducts().isEmpty()) {
+                        System.out.println();
+                        System.out.println("Додайте товари перед оформленням замовлення!");
+                    } else {
+                        Order order = new Order(cart);
+                        System.out.println();
+                        System.out.println("Замовлення оформлено!");
+                        System.out.println(order);
+                        cart.clear();
+                    }
+
                     break;
                 default:
                     System.out.println("Невідома опція! Спробуйте ще раз!");

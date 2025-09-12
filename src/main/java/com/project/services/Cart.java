@@ -19,6 +19,10 @@ public class Cart {
         _products.remove(product);
     }
 
+    public List<Product> getProducts() {
+        return new ArrayList<>(_products);
+    }
+
     public double getTotalPrice() {
         double total = 0.0;
 
@@ -27,6 +31,10 @@ public class Cart {
         }
 
         return total;
+    }
+
+    public void clear() {
+        _products.clear();
     }
 
     @Override
