@@ -46,23 +46,24 @@ public class Main {
             System.out.println();
             System.out.print("Виберіть опцію: ");
 
-            int choice = scanner.nextInt();
+            String choice = scanner.nextLine();
 
             switch (choice) {
-                case 0:
+                case "0":
                     System.out.println();
                     System.out.println("Дякуємо, що використовували наш магазин!");
                     return;
-                case 1:
+                case "1":
                     System.out.println();
                     System.out.println(product1);
                     System.out.println(product2);
                     System.out.println(product3);
                     break;
-                case 2:
+                case "2":
                     System.out.println();
                     System.out.print("Введіть ID товару для додавання до кошика: ");
                     int id = scanner.nextInt();
+                    scanner.nextLine();
 
                     if (id == 1) {
                         cart.addProduct(product1);
@@ -78,7 +79,7 @@ public class Main {
                     }
 
                     break;
-                case 3:
+                case "3":
                     if (cart.getProducts().isEmpty()) {
                         System.out.println();
                         System.out.println("Кошик порожній!");
@@ -87,7 +88,7 @@ public class Main {
                     }
 
                     break;
-                case 4:
+                case "4":
                     if (cart.getProducts().isEmpty()) {
                         System.out.println();
                         System.out.println("Додайте товари перед оформленням замовлення!");
@@ -102,7 +103,7 @@ public class Main {
                     }
 
                     break;
-                case 5:
+                case "5":
                     if (!cart.getProducts().isEmpty()) {
                         cart.clearCart();
                         System.out.println();
@@ -113,16 +114,17 @@ public class Main {
                     }
 
                     break;
-                case 6:
+                case "6":
                     System.out.println();
 
                     if (orderHistory.isEmpty()) {
                         System.out.println("Історія замовлень порожня!");
                     } else {
-                        System.out.println("Історія ваших замовлень");
+                        System.out.println("Історія ваших замовлень: ");
                         System.out.println();
 
                         for (int i = 0; i < orderHistory.size(); i++) {
+                            System.out.println("--------------------");
                             System.out.println("Замовлення #" + (i + 1));
                             for (Product product : orderHistory.get(i).get_products()) {
                                 System.out.println(product.toString());
@@ -134,8 +136,8 @@ public class Main {
                     }
 
                     break;
-                case 7:
-                    scanner.nextLine();
+                case "7":
+
                     System.out.println();
                     System.out.print("Що шукаємо? ");
                     String searchTerm = scanner.nextLine();
@@ -145,7 +147,9 @@ public class Main {
                         System.out.println();
                         System.out.println("За вашим запитом '" + searchTerm + "' товарів не знайдено!");
                     } else {
+                        System.out.println();
                         System.out.println("Результати пошуку за запитом '" + searchTerm + "':");
+                        System.out.println("Знайдено товарів: " + searchResults.size());
                         System.out.println();
 
                         for (Product product : searchResults) {
@@ -155,6 +159,7 @@ public class Main {
 
                     break;
                 default:
+                    System.out.println();
                     System.out.println("Невідома опція! Спробуйте ще раз!");
                     break;
             }

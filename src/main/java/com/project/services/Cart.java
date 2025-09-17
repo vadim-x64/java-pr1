@@ -41,6 +41,7 @@ public class Cart {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
+        System.out.println();
         for (Product product : _products) {
             stringBuilder.append(product.toString()).append("\n");
         }
