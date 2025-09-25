@@ -9,26 +9,26 @@ import java.util.List;
 @Setter
 @Getter
 public class Order {
-    private List<Product> _products;
-    private double _totalPrice;
-    private String _status;
+    private List<Product> products;
+    private double totalPrice;
+    private String status;
 
     public Order(Cart cart) {
-        _products = new ArrayList<>(cart.getProducts());
-        _totalPrice = cart.getTotalPrice();
-        _status = "Нове";
+        products = new ArrayList<>(cart.getProducts());
+        totalPrice = cart.getTotalPrice();
+        status = "Нове";
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Замовлення:\n");
 
-        for (Product product : _products) {
+        for (Product product : products) {
             sb.append(product.toString()).append("\n");
         }
 
-        sb.append("Загальна вартість: ").append(_totalPrice).append("\n");
-        sb.append("Статус: ").append(_status);
+        sb.append("Загальна вартість: ").append(totalPrice).append("\n");
+        sb.append("Статус: ").append(status);
         return sb.toString();
     }
 }

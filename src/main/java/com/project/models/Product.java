@@ -8,15 +8,15 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Product {
-    private int _id;
-    private String _name;
-    private double _price;
-    private String _description;
-    private Category _category;
+    private int id;
+    private String name;
+    private double price;
+    private String description;
+    private Category category;
 
     @Override
     public String toString() {
-        return "Товар {" + "id = " + _id + ", назва = '" + _name + '\'' + ", ціна = " + _price +
-                ", опис = '" + _description + '\'' + ", категорія = '" + _category.getName() + '\'' + '}';
+        return "Товар {" + "id = " + id + ", назва = '" + name + '\'' + ", ціна = " + price +
+                ", опис = '" + description + '\'' + ", категорія = '" + category.getName() + '\'' + '}';
     }
 }

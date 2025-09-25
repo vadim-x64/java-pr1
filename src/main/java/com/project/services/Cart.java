@@ -5,36 +5,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    private List<Product> _products;
+    private final List<Product> products;
 
     public Cart() {
-        _products = new ArrayList<>();
+        products = new ArrayList<>();
     }
 
     public void addProduct(Product product) {
-        _products.add(product);
+        products.add(product);
     }
 
     public void removeProduct(Product product) {
-        _products.remove(product);
+        products.remove(product);
     }
 
     public List<Product> getProducts() {
-        return new ArrayList<>(_products);
+        return new ArrayList<>(products);
     }
 
     public double getTotalPrice() {
         double total = 0.0;
 
-        for (Product product : _products) {
-            total += product.get_price();
+        for (Product product : products) {
+            total += product.getPrice();
         }
 
         return total;
     }
 
     public void clearCart() {
-        _products.clear();
+        products.clear();
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Cart {
         StringBuilder stringBuilder = new StringBuilder();
 
         System.out.println();
-        for (Product product : _products) {
+        for (Product product : products) {
             stringBuilder.append(product.toString()).append("\n");
         }
 

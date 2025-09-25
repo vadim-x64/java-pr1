@@ -127,11 +127,11 @@ public class Main {
                         for (int i = 0; i < orderHistory.size(); i++) {
                             System.out.println("--------------------");
                             System.out.println("Замовлення #" + (i + 1));
-                            for (Product product : orderHistory.get(i).get_products()) {
+                            for (Product product : orderHistory.get(i).getProducts()) {
                                 System.out.println(product.toString());
                             }
-                            System.out.println("Загальна вартість: " + orderHistory.get(i).get_totalPrice());
-                            System.out.println("Статус: " + orderHistory.get(i).get_status());
+                            System.out.println("Загальна вартість: " + orderHistory.get(i).getTotalPrice());
+                            System.out.println("Статус: " + orderHistory.get(i).getStatus());
                             System.out.println("--------------------");
                         }
                     }

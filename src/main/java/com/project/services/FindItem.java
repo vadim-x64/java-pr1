@@ -14,7 +14,7 @@ public class FindItem {
         String searchTerm = name.toLowerCase().trim();
 
         for (Product product : products) {
-            if (product.get_name().toLowerCase().contains(searchTerm)) {
+            if (product.getName().toLowerCase().contains(searchTerm)) {
                 result.add(product);
             }
         }
@@ -27,7 +27,7 @@ public class FindItem {
         String searchTerm = categoryName.toLowerCase().trim();
 
         for (Product product : products) {
-            if (product.get_category().getName().toLowerCase().contains(searchTerm)) {
+            if (product.getCategory().getName().toLowerCase().contains(searchTerm)) {
                 result.add(product);
             }
         }
@@ -40,7 +40,7 @@ public class FindItem {
         String term = searchTerm.toLowerCase().trim();
 
         for (Product product : products) {
-            if (product.get_name().toLowerCase().contains(term) || product.get_category().getName().toLowerCase().contains(term)) {
+            if (product.getName().toLowerCase().contains(term) || product.getCategory().getName().toLowerCase().contains(term)) {
                 result.add(product);
             }
         }
