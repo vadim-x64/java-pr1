@@ -62,6 +62,7 @@ public class Main {
                 case "2":
                     System.out.println();
                     System.out.print("Введіть ID товару для додавання до кошика: ");
+
                     int id = scanner.nextInt();
                     scanner.nextLine();
 
@@ -137,7 +138,6 @@ public class Main {
 
                     break;
                 case "7":
-
                     System.out.println();
                     System.out.print("Що шукаємо? ");
                     String searchTerm = scanner.nextLine();
